@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Corporate Dashboard PDFs</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    .navbar {
+        background: #020617;
+        border-bottom: 1px solid #1e293b;
+    }
+
+    .navbar-brand {
+        color: #38bdf8 !important;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .search-box input {
+        background: #020617;
+        border: 1px solid #334155;
+        color: white;
+    }
+
+    .search-box input::placeholder {
+        color: #94a3b8;
+    }
+
+    .card {
+        background: #1e293b;
+        border: none;
+        border-radius: 16px;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .card-title {
+        color: #38bdf8;
+        font-weight: 600;
+    }
+
+    .btn-pdf {
+        width: 100%;
+        margin-top: 6px;
+        background: linear-gradient(45deg, #06b6d4, #3b82f6);
+        border: none;
+        color: white;
+    }
+
+    .btn-pdf:hover {
+        background: linear-gradient(45deg, #0891b2, #2563eb);
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px;
+        text-align: center;
+        color: #94a3b8;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark">
+    <div class="container d-flex justify-content-between">
+        <span class="navbar-brand">📊 Corporate PDF Dashboard</span>
+    </div>
+</nav>
+
+<!-- SEARCH -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-6 mx-auto search-box">
+            <input type="text" id="searchInput" class="form-control" placeholder="🔍 Αναζήτηση καταστήματος...">
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="row g-4" id="storeContainer">
+
+        <!-- Store 1 -->
+        <div class="col-md-4 store-card">
+            <div class="card p-3">
+                <h5 class="card-title">Κατάστημα Αθήνα</h5>
+
+                <a href="pdfs/store1-file1.pdf" target="_blank" class="btn btn-pdf">Τιμοκατάλογος</a>
+                <a href="pdfs/store1-file2.pdf" target="_blank" class="btn btn-pdf">Προσφορές</a>
+            </div>
+        </div>
+
+        <!-- Store 2 -->
+        <div class="col-md-4 store-card">
+            <div class="card p-3">
+                <h5 class="card-title">Κατάστημα Θεσσαλονίκη</h5>
+
+                <a href="pdfs/store2-file1.pdf" target="_blank" class="btn btn-pdf">Κατάλογος</a>
+                <a href="pdfs/store2-file2.pdf" target="_blank" class="btn btn-pdf">Τιμές</a>
+            </div>
+        </div>
+
+        <!-- Store 3 -->
+        <div class="col-md-4 store-card">
+            <div class="card p-3">
+                <h5 class="card-title">Κατάστημα Πάτρα</h5>
+
+                <a href="pdfs/store3.pdf" target="_blank" class="btn btn-pdf">Προϊόντα</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 Corporate Dashboard
+</footer>
+
+<!-- SEARCH SCRIPT -->
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".store-card");
+
+    searchInput.addEventListener("keyup", function() {
+        let filter = this.value.toLowerCase();
+
+        cards.forEach(card => {
+            let title = card.innerText.toLowerCase();
+
+            if (title.includes(filter)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
